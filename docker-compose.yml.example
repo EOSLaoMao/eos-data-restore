@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  restore:
+    build:
+      context: .
+    image: restore:lastest
+    container_name: restore
+    volumes:
+      - /temp/data:/data  #Change the host path(right part) to the path you want to backup.
+    environment:
+      - EOS_DATA_DIR=~/data/
+      - BACKUP_DATE=18-09-15 #The backup date.
+      - RESTORE_PATH=~/data/restore
+      - BACKUP_PATH=~/backup
+
